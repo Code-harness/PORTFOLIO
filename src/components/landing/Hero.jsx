@@ -13,7 +13,7 @@ const FloatingParticles = () => {
       {particles.map((_, i) => (
         <motion.div
           key={i}
-          className="absolute rounded-full bg-blue-500/10 dark:bg-blue-400/5"
+          className="absolute rounded-full bg-blue-400/5"
           style={{
             width: Math.random() * 300 + 100,
             height: Math.random() * 300 + 100,
@@ -24,7 +24,7 @@ const FloatingParticles = () => {
             x: [0, Math.random() * 80 - 40, 0],
             y: [0, Math.random() * 80 - 40, 0],
             scale: [1, 1.1, 1],
-            opacity: [0.2, 0.4, 0.2],
+            opacity: [0.1, 0.3, 0.1],
           }}
           transition={{
             duration: Math.random() * 15 + 15,
@@ -82,9 +82,8 @@ const Hero = () => {
   return (
     <section
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen flex items-center justify-center bg-slate-50 dark:bg-[#030712] text-slate-900 dark:text-white px-6 py-24 lg:py-0 overflow-hidden transition-colors duration-700"
+      className="relative min-h-screen flex items-center justify-center bg-[#030712] text-white px-6 py-24 lg:py-0 overflow-hidden"
     >
-      {/* 1. Background Elements */}
       <FloatingParticles />
 
       {/* Fixed Glow Orbs */}
@@ -92,7 +91,7 @@ const Hero = () => {
       <div className="absolute bottom-[5%] right-[-5%] w-[500px] h-[500px] rounded-full bg-indigo-600/10 blur-[120px] pointer-events-none" />
 
       {/* Noise Texture */}
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] dark:opacity-20 pointer-events-none" />
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none" />
 
       <motion.div
         initial="hidden"
@@ -104,7 +103,7 @@ const Hero = () => {
           <div className="lg:col-span-7 order-2 lg:order-1">
             <motion.div
               variants={fadeInUp}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-600/5 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 text-xs font-bold text-blue-600 dark:text-blue-400 mb-8"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-bold text-blue-400 mb-8"
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
@@ -118,17 +117,17 @@ const Hero = () => {
               className="text-5xl md:text-5xl font-black tracking-tighter mb-8 leading-[0.9]"
             >
               Engineering <br />
-              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 dark:from-blue-400 dark:via-indigo-400 dark:to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-400 via-indigo-400 dark:to-cyan-400 bg-clip-text text-transparent">
                 Digital Excellence
               </span>
             </motion.h1>
 
             <motion.p
               variants={fadeInUp}
-              className="text-xl text-slate-600 dark:text-slate-400 mb-10 max-w-xl leading-relaxed"
+              className="text-xl text-slate-400 mb-10 max-w-xl leading-relaxed"
             >
               I’m{" "}
-              <span className="text-slate-900 dark:text-white font-bold underline decoration-blue-500 decoration-2 underline-offset-4 transition-colors">
+              <span className="text-white font-bold underline decoration-blue-500 decoration-2 underline-offset-4">
                 Manzi I Kevin
               </span>
               , a Full-stack Developer architecting high-performance interfaces
@@ -139,7 +138,7 @@ const Hero = () => {
               variants={fadeInUp}
               className="flex flex-wrap gap-5 mb-16"
             >
-              <button className="group px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-black hover:bg-blue-600 dark:hover:bg-blue-50 rounded-2xl font-black transition-all flex items-center gap-2 shadow-2xl shadow-blue-500/20 active:scale-95">
+              <button className="group px-8 py-4 bg-white text-black hover:bg-blue-50 rounded-2xl font-black transition-all flex items-center gap-2 shadow-2xl shadow-blue-500/20 active:scale-95">
                 View Portfolio{" "}
                 <ArrowRight
                   size={20}
@@ -149,13 +148,13 @@ const Hero = () => {
               <div className="flex items-center gap-2 px-2">
                 <a
                   href="#"
-                  className="p-3 text-slate-400 hover:text-blue-600 dark:hover:text-white transition-all hover:scale-110"
+                  className="p-3 text-slate-400 hover:text-white transition-all hover:scale-110"
                 >
                   <Github size={24} />
                 </a>
                 <a
                   href="#"
-                  className="p-3 text-slate-400 hover:text-blue-600 dark:hover:text-white transition-all hover:scale-110"
+                  className="p-3 text-slate-400 hover:text-white transition-all hover:scale-110"
                 >
                   <Linkedin size={24} />
                 </a>
@@ -165,9 +164,9 @@ const Hero = () => {
             {/* Tech Stack Icons */}
             <motion.div
               variants={fadeInUp}
-              className="pt-10 border-t border-slate-200 dark:border-slate-800/50"
+              className="pt-10 border-t border-slate-800/50"
             >
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-8">
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-500 mb-8">
                 System Stack
               </p>
               <div className="flex flex-wrap gap-8">
@@ -177,11 +176,11 @@ const Hero = () => {
                     className="group flex flex-col items-center gap-3"
                   >
                     <img
-                      src={`https://cdn.simpleicons.org/${tech.icon}/64748b`}
-                      className="w-7 h-7 dark:filter dark:invert dark:opacity-40 group-hover:dark:opacity-100 group-hover:dark:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] group-hover:scale-125 transition-all duration-300"
+                      src={`https://cdn.simpleicons.org/${tech.icon}/ffffff`}
+                      className="w-7 h-7 filter opacity-40 group-hover:opacity-100 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] group-hover:scale-125 transition-all duration-300"
                       alt={tech.name}
                     />
-                    <span className="text-[9px] font-black text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity tracking-widest uppercase">
+                    <span className="text-[9px] font-black text-slate-500 opacity-0 group-hover:opacity-100 transition-opacity tracking-widest uppercase">
                       {tech.name}
                     </span>
                   </div>
@@ -196,60 +195,44 @@ const Hero = () => {
             style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
             className="lg:col-span-5 order-1 lg:order-2 w-full relative perspective-1000"
           >
-            <div className="relative rounded-[2.5rem] border border-slate-200 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 p-1 backdrop-blur-2xl shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] dark:shadow-none transition-colors overflow-hidden">
-              <div className="flex items-center gap-2 px-6 py-5 border-b border-slate-200 dark:border-slate-800">
+            <div className="relative rounded-[2.5rem] border border-slate-800 bg-slate-900/40 p-1 backdrop-blur-2xl shadow-2xl overflow-hidden">
+              <div className="flex items-center gap-2 px-6 py-5 border-b border-slate-800">
                 <div className="flex gap-1.5">
                   <div className="w-3 h-3 rounded-full bg-red-400/40 border border-red-500/20" />
                   <div className="w-3 h-3 rounded-full bg-amber-400/40 border border-amber-500/20" />
                   <div className="w-3 h-3 rounded-full bg-emerald-400/40 border border-emerald-500/20" />
                 </div>
-                <span className="ml-4 text-[11px] text-slate-400 font-mono uppercase tracking-[0.2em] font-bold">
+                <span className="ml-4 text-[11px] text-slate-500 font-mono uppercase tracking-[0.2em] font-bold">
                   Session: Manzi_Kevin.ts
                 </span>
               </div>
               <div className="p-8 text-[14px] font-mono leading-loose overflow-x-auto">
-                <p className="text-purple-600 dark:text-purple-400 font-bold">
+                <p className="text-purple-400 font-bold">
                   const{" "}
-                  <span className="text-blue-600 dark:text-blue-400 font-normal">
-                    developer
-                  </span>{" "}
-                  = &#123;
+                  <span className="text-blue-400 font-normal">developer</span> =
+                  &#123;
                 </p>
-                <p className="pl-6 text-slate-700 dark:text-slate-300">
+                <p className="pl-6 text-slate-300">
                   name:{" "}
-                  <span className="text-emerald-600 dark:text-emerald-400">
-                    'Manzi I Kevin'
-                  </span>
-                  ,
+                  <span className="text-emerald-400">'Manzi I Kevin'</span>,
                 </p>
-                <p className="pl-6 text-slate-700 dark:text-slate-300">
+                <p className="pl-6 text-slate-300">
                   focus:{" "}
-                  <span className="text-emerald-600 dark:text-emerald-400">
-                    'Scalable Systems'
-                  </span>
-                  ,
+                  <span className="text-emerald-400">'Scalable Systems'</span>,
                 </p>
-                <p className="pl-6 text-slate-700 dark:text-slate-300">
-                  experience:{" "}
-                  <span className="text-amber-600 dark:text-amber-400">
-                    5+ Years
-                  </span>
-                  ,
+                <p className="pl-6 text-slate-300">
+                  experience: <span className="text-amber-400">5+ Years</span>,
                 </p>
-                <p className="pl-6 text-slate-700 dark:text-slate-300">
+                <p className="pl-6 text-slate-300">
                   status:{" "}
-                  <span className="text-emerald-600 dark:text-emerald-400">
-                    'Open to Build'
-                  </span>
+                  <span className="text-emerald-400">'Open to Build'</span>
                 </p>
-                <p className="text-purple-600 dark:text-purple-400 font-bold">
-                  &#125;;
-                </p>
+                <p className="text-purple-400 font-bold">&#125;;</p>
                 <div className="mt-6 flex items-center gap-2">
                   <span className="animate-pulse text-blue-500 font-bold">
                     {">"}
                   </span>
-                  <span className="text-slate-400 italic">
+                  <span className="text-slate-500 italic">
                     Ready for deployment...
                   </span>
                 </div>
