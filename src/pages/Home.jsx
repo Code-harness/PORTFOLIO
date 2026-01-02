@@ -3,6 +3,7 @@ import Hero from "../components/landing/Hero";
 import Services from "../components/landing/Services";
 import AboutHero from "../components/landing/AboutHero";
 import Projects from "../components/landing/Projects";
+import Contact from "../components/landing/contact";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <Services />
       <AboutHero />
       <Projects/>
+      <Contact/>
       <CtaFooter />
     </div>
   );
