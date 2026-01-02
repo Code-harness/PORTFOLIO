@@ -4,7 +4,7 @@ import Services from "../components/landing/Services";
 import AboutHero from "../components/landing/AboutHero";
 import Projects from "../components/landing/Projects";
 import Contact from "../components/landing/contact";
-
+import Testimonials from "../components/landing/testmonials";
 
 const Home = () => {
   return (
@@ -12,8 +12,9 @@ const Home = () => {
       <Hero />
       <Services />
       <AboutHero />
-      <Projects/>
-      <Contact/>
+      <Projects />
+      <Testimonials />
+      <Contact />
       <CtaFooter />
     </div>
   );

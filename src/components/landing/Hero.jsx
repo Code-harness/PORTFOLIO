@@ -115,7 +115,7 @@ const Hero = () => {
 
             <motion.h1
               variants={fadeInUp}
-              className="text-5xl md:text-8xl font-black tracking-tighter mb-8 leading-[0.9]"
+              className="text-5xl md:text-5xl font-black tracking-tighter mb-8 leading-[0.9]"
             >
               Engineering <br />
               <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 dark:from-blue-400 dark:via-indigo-400 dark:to-cyan-400 bg-clip-text text-transparent">
