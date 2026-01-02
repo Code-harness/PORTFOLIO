@@ -5,6 +5,7 @@ import AboutHero from "../components/landing/AboutHero";
 import Projects from "../components/landing/Projects";
 import Contact from "../components/landing/contact";
 
+
 const Home = () => {
   return (
     <div>

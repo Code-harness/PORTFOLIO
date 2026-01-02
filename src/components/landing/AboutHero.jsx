@@ -69,12 +69,8 @@ const AboutHero = () => {
 
             <div className="space-y-8 text-slate-400 text-lg md:text-xl leading-relaxed max-w-2xl">
               <p>
-                I am{" "}
-                <span className="text-white font-semibold">
-                  Manzi Irakoze Kevin
-                </span>
-                . I don't just build websites; I engineer scalable ecosystems.
-                My focus lies in the harmony between{" "}
+                I don't just build websites; I engineer scalable ecosystems. My
+                focus lies in the harmony between{" "}
                 <span className="text-blue-400">system performance</span> and
                 <span className="text-indigo-400"> visual precision</span>.
               </p>

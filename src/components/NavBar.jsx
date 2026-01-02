@@ -41,7 +41,7 @@ const Navbar = () => {
             <Terminal size={20} className="text-white" />
           </div>
           <span className="text-xl font-bold tracking-tighter text-white">
-            GOOD<span className="text-blue-500">MAN</span>
+            MAZI<span className="text-blue-500"> I Kevin</span>
           </span>
         </div>
 
