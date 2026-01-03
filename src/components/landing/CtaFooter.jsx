@@ -16,13 +16,13 @@ const CtaFooter = () => {
     {
       name: "Github",
       icon: <Github size={20} />,
-      href: "#",
+      href: "https://github.com/Code-harness",
       color: "hover:text-white",
     },
     {
       name: "LinkedIn",
       icon: <Linkedin size={20} />,
-      href: "#",
+      href: "https://www.linkedin.com/in/code-harnessor-85bb8238b/",
       color: "hover:text-blue-400",
     },
     {

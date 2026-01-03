@@ -109,7 +109,7 @@ const Hero = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
               </span>
-              Available for Full-stack Roles
+              Available for You !
             </motion.div>
 
             <motion.h1
@@ -147,13 +147,15 @@ const Hero = () => {
               </button>
               <div className="flex items-center gap-2 px-2">
                 <a
-                  href="#"
+                  href="https://github.com/Code-harness"
+                  target="_blank"
                   className="p-3 text-slate-400 hover:text-white transition-all hover:scale-110"
                 >
                   <Github size={24} />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/code-harnessor-85bb8238b/"
+                  target="_blank"
                   className="p-3 text-slate-400 hover:text-white transition-all hover:scale-110"
                 >
                   <Linkedin size={24} />
@@ -221,7 +223,7 @@ const Hero = () => {
                   <span className="text-emerald-400">'Scalable Systems'</span>,
                 </p>
                 <p className="pl-6 text-slate-300">
-                  experience: <span className="text-amber-400">5+ Years</span>,
+                  experience: <span className="text-amber-400">3+ Years</span>,
                 </p>
                 <p className="pl-6 text-slate-300">
                   status:{" "}
@@ -250,7 +252,7 @@ const Hero = () => {
                 <Terminal size={24} />
               </div>
               <div>
-                <div className="text-3xl font-black">1k+</div>
+                <div className="text-3xl font-black">4k+</div>
                 <div className="text-[10px] uppercase tracking-widest font-black opacity-80 leading-none">
                   Commits / Year
                 </div>
