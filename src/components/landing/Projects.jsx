@@ -1,38 +1,38 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, Github, Globe, Code2 } from "lucide-react";
+import image1 from "../../assets/imgs/proj_1.png";
+import image2 from "../../assets/imgs/proj_2.png";
+import image3 from "../../assets/imgs/proj_3.png";
 
 const projects = [
   {
-    title: "EcoSphere SaaS",
+    title: "G.S Marie Merci Kibeho Website",
     category: "Full-stack Platform",
     description:
-      "A comprehensive environmental tracking dashboard with real-time data visualization and carbon footprint analytics.",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
-    tags: ["Next.js", "Laravel", "PostgreSQL", "Recharts"],
+      "A responsive school website built with Laravel and Blade, featuring student information, event announcements, and a modern, clean design.",
+    image: image1,
+    tags: ["Tailwind", "Laravel", "Blade", "AOS"],
     link: "#",
     github: "#",
   },
   {
-    title: "Nova UI Kit",
-    category: "Design System",
+    title: "Brave Photography",
+    category: "Front-End Website",
     description:
-      "An enterprise-grade React component library built with Tailwind CSS and Framer Motion for high-end digital products.",
-    image:
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
+      "A visually stunning photography portfolio website built with React and Tailwind CSS, showcasing high-resolution images with smooth animations and responsive layouts.",
+    image: image3,
     tags: ["React", "TypeScript", "Tailwind"],
     link: "#",
     github: "#",
   },
   {
-    title: "SwiftBites App",
-    category: "Mobile Solution",
+    title: "Justice On Move-MIS",
+    category: "Full-stack Platform",
     description:
-      "A ultra-fast food delivery mobile application featuring real-time driver tracking and encrypted payment processing.",
-    image:
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=800",
-    tags: ["React Native", "Firebase", "Stripe"],
+      "A management information system for university law students to handle case submissions, assignments, and dashboard tracking, built with React Native and Firebase for mobile-first accessibility.",
+    image: image2,
+    tags: ["laravel", "API", "blade", "Tailwind", "Alpine"],
     link: "#",
     github: "#",
   },
