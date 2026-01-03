@@ -27,30 +27,6 @@ const testimonials = [
     image: "https://i.pravatar.cc/150?u=james",
     rating: 5,
   },
-  {
-    name: "Elena Rodriguez",
-    role: "Senior Lead Engineer",
-    content:
-      "The cleanest Laravel/React implementation I've seen in years. His documentation is as good as his code.",
-    image: "https://i.pravatar.cc/150?u=elena",
-    rating: 5,
-  },
-  {
-    name: "Marcus Thorne",
-    role: "Creative Director",
-    content:
-      "Animations were fluid, performance was top-tier, and the SEO optimization was spot on. Highly recommended.",
-    image: "https://i.pravatar.cc/150?u=marcus",
-    rating: 5,
-  },
-  {
-    name: "Sophia Li",
-    role: "Founder @ Nexa",
-    content:
-      "A reliable partner for long-term projects. Professional, communicative, and technically brilliant.",
-    image: "https://i.pravatar.cc/150?u=sophia",
-    rating: 5,
-  },
 ];
 
 const TestimonialCard = ({ item, index }) => {
