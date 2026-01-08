@@ -79,10 +79,10 @@ const CtaFooter = () => {
                 </h3>
                 {/* Responsive Button Text sizing */}
                 <a
-                  href="mailto:hello@manzi.com"
+                  href="mailto:hello@manzi.dev"
                   className="group/btn relative w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 md:px-10 py-4 md:py-5 bg-white text-black text-sm md:text-base font-black rounded-2xl transition-all hover:scale-105 active:scale-95 shadow-xl shadow-white/5"
                 >
-                  hello@manzi.com
+                  hello@manzi.dev
                   <ArrowRight
                     size={18}
                     className="group-hover/btn:translate-x-1 transition-transform"
