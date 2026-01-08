@@ -4,6 +4,7 @@ import { ExternalLink, Github, Globe, Code2 } from "lucide-react";
 import image1 from "../../assets/imgs/proj_1.png";
 import image2 from "../../assets/imgs/proj_2.png";
 import image3 from "../../assets/imgs/proj_3.png";
+import image4 from "../../assets/imgs/proj_4.png";
 
 const projects = [
   {
@@ -33,6 +34,17 @@ const projects = [
       "A management information system for university law students to handle case submissions, assignments, and dashboard tracking, built with React Native and Firebase for mobile-first accessibility.",
     image: image2,
     tags: ["laravel", "API", "blade", "Tailwind", "Alpine"],
+    link: "#",
+    github: "#",
+  },
+
+  {
+    title: "Kanyarwanda Tech",
+    category: "Front-End Website",
+    description:
+      "A stunning website for tech company operating in Rwanda, It is Responsive for all devices and it showcase high-resolution design built with laravel, alpine js, tailwind and blade.",
+    image: image4,
+    tags: ["laravel", "Google Maps", "blade", "Tailwind", "Alpine"],
     link: "#",
     github: "#",
   },
