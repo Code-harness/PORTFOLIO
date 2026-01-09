@@ -48,7 +48,7 @@ const services = [
     description:
       "Deploying and managing scalable environments with AWS and Docker. Zero-downtime pipelines.",
     icon: <Layers className="text-purple-400" size={24} />,
-    tags: ["AWS", "Docker", "CI/CD"],
+    tags: ["AWS", "Docker", "CI/CD","Cloudflare","Render"],
     color: "from-purple-500/20",
   },
   {
