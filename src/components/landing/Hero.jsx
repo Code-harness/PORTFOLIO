@@ -128,7 +128,7 @@ const Hero = () => {
             >
               I’m{" "}
               <span className="text-white font-bold underline decoration-blue-500 decoration-2 underline-offset-4">
-                Manzi IRAKOZE Kevin
+                MANZI IRAKOZE Kevin
               </span>
               , a Full-stack Developer architecting high-performance interfaces
               and scalable backend ecosystems.
