@@ -24,7 +24,7 @@ const services = [
     description:
       "Building robust API ecosystems and microservices with Laravel and Node.js. Optimized for scale and speed.",
     icon: <Server className="text-indigo-400" size={24} />,
-    tags: ["Laravel", "PostgreSQL", "Redis"],
+    tags: ["Laravel", "PostgreSQL", "Redis","Mongo DB",'Express',"Python"],
     color: "from-indigo-500/20",
   },
   {
