@@ -72,12 +72,15 @@ const Hero = () => {
     { name: "Next.js", icon: "nextdotjs" },
     { name: "Python", icon: "python" },
     { name: "Django", icon: "Django" },
+    { name: "MongoDB", icon: "MongoDB" },
+    { name: "Express", icon: "Express" },
     { name: "Laravel", icon: "laravel" },
     { name: "TypeScript", icon: "typescript" },
     { name: "PostgreSQL", icon: "postgresql" },
     { name: "Tailwind", icon: "tailwindcss" },
     { name: "MySQL", icon: "mysql" },
     { name: "Flutter", icon: "flutter" },
+    { name: "NodeJS", icon: "Nodedotjs" },
   ];
 
   return (
