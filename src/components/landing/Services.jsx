@@ -32,7 +32,7 @@ const services = [
     description:
       "Developing cross-platform mobile applications that feel native, ensuring a seamless experience.",
     icon: <Smartphone className="text-cyan-400" size={24} />,
-    tags: ["React Native", "Expo"],
+    tags: ["React Native", "Expo","Flutter"],
     color: "from-cyan-500/20",
   },
   {
