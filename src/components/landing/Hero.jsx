@@ -71,6 +71,7 @@ const Hero = () => {
     { name: "React", icon: "react" },
     { name: "Next.js", icon: "nextdotjs" },
     { name: "Python", icon: "python" },
+    { name: "Django", icon: "Django" },
     { name: "Laravel", icon: "laravel" },
     { name: "TypeScript", icon: "typescript" },
     { name: "PostgreSQL", icon: "postgresql" },
