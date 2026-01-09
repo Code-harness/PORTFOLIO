@@ -16,7 +16,7 @@ const services = [
     description:
       "Architecting high-performance, SEO-friendly interfaces using Next.js and React. Focused on Core Web Vitals.",
     icon: <Layout className="text-blue-400" size={24} />,
-    tags: ["React", "Next.js", "Tailwind"],
+    tags: ["React", "Next.js", "Tailwind","Blade","Typescript","Vue.js"],
     color: "from-blue-500/20",
   },
   {
