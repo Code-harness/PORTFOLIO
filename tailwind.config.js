@@ -2,7 +2,12 @@
 export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Geist Sans", "Inter", "sans-serif"],
+        mono: ["Geist Mono", "JetBrains Mono", "Fira Code", "monospace"],
+      },
+    },
   },
   plugins: [],
 };

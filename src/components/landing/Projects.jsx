@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, Github, Globe, Code2 } from "lucide-react";
 import image1 from "../../assets/imgs/proj_1.png";
@@ -11,7 +11,7 @@ const projects = [
     title: "G.S Marie Merci Kibeho Website",
     category: "Full-stack Platform",
     description:
-      "A responsive school website built with Laravel and Blade, featuring student information, event announcements, and a modern, clean design.",
+      "A responsive enterprise ecosystem engineered with Laravel and Blade, managing student information arrays, automated schedule deployments, and localized performance matrices.",
     image: image1,
     tags: ["Tailwind", "Laravel", "Blade", "AOS"],
     link: "#",
@@ -19,9 +19,9 @@ const projects = [
   },
   {
     title: "Brave Photography",
-    category: "Front-End Website",
+    category: "Front-End Workspace",
     description:
-      "A visually stunning photography portfolio website built with React and Tailwind CSS, showcasing high-resolution images with smooth animations and responsive layouts.",
+      "High-fidelity image rendering matrix built using React and TypeScript. Optimized using lazy image compilation and crisp asset loading architecture.",
     image: image3,
     tags: ["React", "TypeScript", "Tailwind"],
     link: "#",
@@ -29,96 +29,116 @@ const projects = [
   },
   {
     title: "Justice On Move-MIS",
-    category: "Full-stack Platform",
+    category: "Management Info System",
     description:
-      "A management information system for university law students to handle case submissions, assignments, and dashboard tracking, built with React Native and Firebase for mobile-first accessibility.",
+      "A secure management information platform built for tracking case distribution metrics, legal submission pipelines, and real-time operations telemetry.",
     image: image2,
-    tags: ["laravel", "API", "blade", "Tailwind", "Alpine"],
+    tags: ["Laravel", "REST API", "Blade", "Tailwind", "Alpine.js"],
     link: "#",
     github: "#",
   },
-
   {
     title: "Kanyarwanda Tech",
-    category: "Front-End Website",
+    category: "Front-End Infrastructure",
     description:
-      "A stunning website for tech company operating in Rwanda, It is Responsive for all devices and it showcase high-resolution design built with laravel, alpine js, tailwind and blade.",
+      "A structural, multi-device corporate tech node featuring embedded geographical API integrations, high-speed routing elements, and modern component engineering.",
     image: image4,
-    tags: ["laravel", "Google Maps", "blade", "Tailwind", "Alpine"],
+    tags: ["Laravel", "Google Maps API", "Blade", "Tailwind", "Alpine.js"],
     link: "#",
     github: "#",
   },
 ];
 
 const ProjectCard = ({ project, index }) => {
+  const urlFallback = useMemo(
+    () => project.title.toLowerCase().replace(/[^a-z0-9]+/g, "-") + ".net",
+    [project.title],
+  );
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group relative"
+      transition={{
+        duration: 0.5,
+        ease: [0.16, 1, 0.3, 1],
+        delay: index * 0.05,
+      }}
+      className="group relative flex flex-col h-full"
     >
-      {/* Browser Frame Header */}
-      <div className="bg-slate-800/80 rounded-t-2xl p-3 border-x border-t border-slate-700 flex items-center gap-1.5 transition-colors group-hover:bg-slate-700/80">
-        <div className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
-        <div className="w-2.5 h-2.5 rounded-full bg-amber-500/40" />
-        <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/40" />
-        <div className="ml-2 flex items-center gap-1 bg-slate-900/50 px-3 py-0.5 rounded-full border border-slate-700">
-          <Globe size={10} className="text-slate-500" />
-          <span className="text-[10px] text-slate-400 font-mono truncate max-w-[100px]">
-            {project.title.toLowerCase().replace(" ", "-")}.io
-          </span>
+      {/* Tactical Shell Window Header */}
+      <div className="bg-zinc-900 rounded-t p-3 border-x border-t border-zinc-900 flex items-center justify-between transition-colors group-hover:border-zinc-800">
+        <div className="flex items-center gap-1.5">
+          <div className="w-1.5 h-1.5 rounded-sm bg-zinc-800" />
+          <div className="w-1.5 h-1.5 rounded-sm bg-zinc-800" />
+          <div className="w-1.5 h-1.5 rounded-sm bg-zinc-800" />
+          <div className="ml-2 flex items-center gap-1.5 bg-zinc-950 px-2.5 py-0.5 rounded border border-zinc-800/60 font-mono">
+            <Globe size={9} className="text-zinc-600" />
+            <span className="text-[9px] text-zinc-500 tracking-wider truncate max-w-[120px]">
+              {urlFallback}
+            </span>
+          </div>
         </div>
+        <span className="text-[8px] font-mono font-bold text-zinc-600 tracking-widest hidden sm:inline">
+          [ DEPLOYED_NODE ]
+        </span>
       </div>
 
-      {/* Main Card Body */}
-      <div className="relative overflow-hidden bg-slate-900 border-x border-b border-slate-800 rounded-b-2xl">
-        {/* Image with Overlay */}
-        <div className="relative aspect-video overflow-hidden">
+      {/* Primary Infrastructure Frame */}
+      <div className="relative overflow-hidden bg-zinc-950/40 border-x border-b border-zinc-900 rounded-b p-0 flex flex-col flex-grow transition-all group-hover:border-zinc-800">
+        {/* Sandbox Canvas Display Container */}
+        <div className="relative aspect-video overflow-hidden border-b border-zinc-900 bg-zinc-950">
           <img
             src={project.image}
             alt={project.title}
-            className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110 group-hover:rotate-1"
+            className="object-cover w-full h-full grayscale opacity-60 transition-all duration-300 group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-80"
+            loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-transparent opacity-80" />
 
-          {/* Hover Actions */}
-          <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm bg-blue-900/10">
+          {/* Flat Grid Overlay Curtain */}
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 backdrop-blur-sm bg-zinc-950/60 flex items-center justify-center gap-2">
             <a
               href={project.github}
-              className="p-3 bg-white/10 border border-white/20 rounded-full hover:bg-white hover:text-black transition-all"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-cyan-400 hover:border-zinc-700 rounded transition-colors"
+              aria-label="Repository Source"
             >
-              <Github size={20} />
+              <Github size={15} />
             </a>
             <a
               href={project.link}
-              className="p-3 bg-blue-600 rounded-full hover:bg-blue-500 transition-all text-white"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 bg-cyan-500 text-black font-bold hover:bg-cyan-400 rounded transition-colors"
+              aria-label="Live Stream Instance"
             >
-              <ExternalLink size={20} />
+              <ExternalLink size={15} />
             </a>
           </div>
         </div>
 
-        {/* Content */}
-        <div className="p-6">
-          <span className="text-xs font-bold text-blue-500 uppercase tracking-widest mb-2 block">
-            {project.category}
+        {/* Diagnostic Metadata Output */}
+        <div className="p-5 md:p-6 flex flex-col flex-grow">
+          <span className="text-[10px] font-mono font-medium text-cyan-400 uppercase tracking-widest mb-2 block">
+            // classification: {project.category}
           </span>
-          <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+          <h3 className="text-base font-bold text-white mb-2.5 tracking-tight group-hover:text-cyan-400 transition-colors">
             {project.title}
           </h3>
-          <p className="text-slate-400 text-sm leading-relaxed mb-6 line-clamp-2">
+          <p className="text-zinc-400 text-xs leading-relaxed mb-6 flex-grow font-sans">
             {project.description}
           </p>
 
-          <div className="flex flex-wrap gap-2">
+          {/* Codebase Syntax Parameters */}
+          <div className="flex flex-wrap gap-1.5 mt-auto font-mono">
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="flex items-center gap-1 text-[10px] font-bold text-slate-500 border border-slate-800 px-2 py-1 rounded-md bg-slate-900/50"
+                className="flex items-center gap-1 text-[9px] font-medium text-zinc-500 border border-zinc-900/80 px-2 py-0.5 rounded bg-zinc-950/40"
               >
-                <Code2 size={10} /> {tag}
+                <Code2 size={9} className="text-zinc-600" /> {tag.toUpperCase()}
               </span>
             ))}
           </div>
@@ -130,43 +150,54 @@ const ProjectCard = ({ project, index }) => {
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-32 bg-[#030712] px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
+    <section
+      id="projects"
+      className="py-24 md:py-32 bg-[#09090b] text-zinc-100 px-4 md:px-6 relative overflow-hidden selection:bg-cyan-500/20 selection:text-cyan-400"
+    >
+      {/* Vector Alignment Grid Lines */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f293706_1px,transparent_1px),linear-gradient(to_bottom,#1f293706_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none z-0" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
             <motion.h2
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              className="text-blue-500 font-mono text-sm tracking-widest uppercase mb-4"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-cyan-400 font-mono font-medium text-[10px] md:text-xs tracking-[0.25em] uppercase mb-3 block"
             >
-              Selected Work
+              // production_ledger
             </motion.h2>
             <motion.h3
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-4xl md:text-6xl font-bold text-white tracking-tighter"
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.15]"
             >
-              Case <span className="text-slate-500 italic">Studies.</span>
+              Verified Deployments.
             </motion.h3>
           </div>
 
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="hidden md:block text-right"
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-left md:text-right font-mono text-xs flex flex-col md:items-end gap-3"
           >
-            <p className="text-slate-400 max-w-xs mb-4">
-              Explore a collection of projects focused on performance,
-              accessibility, and clean architecture.
+            <p className="text-zinc-400 max-w-xs font-sans text-xs leading-relaxed">
+              An index of deployed assets mapped for maximum systemic
+              reliability, core optimization, and robust internal architectures.
             </p>
-            <button className="text-white font-bold border-b-2 border-blue-500 pb-1 hover:text-blue-400 hover:border-blue-400 transition-all">
-              View All Archives
+            <button className="text-cyan-400 font-bold border-b border-cyan-500/30 pb-0.5 tracking-wider hover:text-cyan-300 hover:border-cyan-400 transition-all text-[11px] uppercase w-fit">
+              QUERY_ARCHIVE_REGISTRY &rarr;
             </button>
           </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Operational Deployment Core Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} index={index} />
           ))}

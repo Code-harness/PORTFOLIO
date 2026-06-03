@@ -12,82 +12,80 @@ import {
 
 const services = [
   {
-    title: "Frontend Excellence",
+    title: "Frontend Architecture",
     description:
-      "Architecting high-performance, SEO-friendly interfaces using Next.js and React. Focused on Core Web Vitals.",
-    icon: <Layout className="text-blue-400" size={24} />,
-    tags: ["React", "Next.js", "Tailwind","Blade","Typescript","Vue.js"],
-    color: "from-blue-500/20",
+      "Architecting high-performance, SEO-optimized user interfaces using Next.js, React, and TypeScript. Monitored for pristine Core Web Vitals and layout shifts.",
+    icon: <Layout className="text-cyan-400" size={20} />,
+    tags: ["React", "Next.js", "Tailwind", "Blade", "TypeScript", "Vue.js"],
   },
   {
-    title: "Backend Architecture",
+    title: "Backend Engineering",
     description:
-      "Building robust API ecosystems and microservices with Laravel and Node.js. Optimized for scale and speed.",
-    icon: <Server className="text-indigo-400" size={24} />,
-    tags: ["Laravel", "PostgreSQL", "Redis","Mongo DB",'Express',"Python"],
-    color: "from-indigo-500/20",
+      "Building resilient distributed API ecosystems, data pipelines, and relational structures with Laravel, Node.js, and Python. Engineered for sub-100ms runtimes.",
+    icon: <Server className="text-cyan-400" size={20} />,
+    tags: ["Laravel", "PostgreSQL", "Redis", "MongoDB", "Express", "Python"],
   },
   {
     title: "Mobile Solutions",
     description:
-      "Developing cross-platform mobile applications that feel native, ensuring a seamless experience.",
-    icon: <Smartphone className="text-cyan-400" size={24} />,
-    tags: ["React Native", "Expo","Flutter"],
-    color: "from-cyan-500/20",
+      "Developing native-performing cross-platform mobile systems via React Native and Expo. Seamless hardware API hooks and background sync mechanics.",
+    icon: <Smartphone className="text-cyan-400" size={20} />,
+    tags: ["React Native", "Expo", "Flutter"],
   },
   {
-    title: "System Performance",
+    title: "System Optimization",
     description:
-      "Audit and optimization of existing codebases to reduce latency and minimize server costs.",
-    icon: <Zap className="text-amber-400" size={24} />,
-    tags: ["Optimization", "Caching"],
-    color: "from-amber-500/20",
+      "Deep audits, refactoring legacy codebases, structural caching policies, and hardware utilization strategies designed to minimize compute bottlenecks.",
+    icon: <Zap className="text-cyan-400" size={20} />,
+    tags: ["Optimization", "Caching", "Performance"],
   },
   {
     title: "Cloud Infrastructure",
     description:
-      "Deploying and managing scalable environments with AWS and Docker. Zero-downtime pipelines.",
-    icon: <Layers className="text-purple-400" size={24} />,
-    tags: ["AWS", "Docker", "CI/CD","Cloudflare","Render"],
-    color: "from-purple-500/20",
+      "Automating scalable virtual container deployments and multi-zone cluster environments via Docker and AWS pipelines. Zero-downtime integrations.",
+    icon: <Layers className="text-cyan-400" size={20} />,
+    tags: ["AWS", "Docker", "CI/CD", "Cloudflare", "Render"],
   },
   {
     title: "Security & Testing",
     description:
-      "Implementing rigorous security protocols and automated testing suites to ensure software reliability.",
-    icon: <ShieldCheck className="text-emerald-400" size={24} />,
-    tags: ["TDD", "OWASP", "Cypress"],
-    color: "from-emerald-500/20",
+      "Integrating rigorous structural validation, static analysis, OWASP security guardrails, and automated testing runtimes to secure production assets.",
+    icon: <ShieldCheck className="text-cyan-400" size={20} />,
+    tags: ["TDD", "OWASP", "Cypress", "Pentesting"],
   },
 ];
 
 const ServiceCard = ({ service, index }) => {
-  let mouseX = useMotionValue(0);
-  let mouseY = useMotionValue(0);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
 
   function handleMouseMove({ currentTarget, clientX, clientY }) {
-    let { left, top } = currentTarget.getBoundingClientRect();
+    const { left, top } = currentTarget.getBoundingClientRect();
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
   }
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.05 }}
+      transition={{
+        duration: 0.5,
+        ease: [0.16, 1, 0.3, 1],
+        delay: index * 0.05,
+      }}
       onMouseMove={handleMouseMove}
-      className="group relative rounded-3xl border border-slate-800 bg-slate-900/40 p-6 md:p-8 overflow-hidden transition-all duration-500 hover:border-blue-500/30"
+      className="group relative rounded border border-zinc-900 bg-zinc-950/40 p-6 md:p-8 overflow-hidden transition-all duration-300 hover:border-zinc-800"
     >
-      {/* Spotlight Effect */}
+      {/* Precision Micro Spotlight Glow */}
       <motion.div
-        className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 transition duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute -inset-px rounded opacity-0 transition duration-300 group-hover:opacity-100"
         style={{
           background: useMotionTemplate`
             radial-gradient(
-              400px circle at ${mouseX}px ${mouseY}px,
-              rgba(59, 130, 246, 0.15),
+              320px circle at ${mouseX}px ${mouseY}px,
+              rgba(34, 211, 238, 0.07),
               transparent 80%
             )
           `,
@@ -96,31 +94,30 @@ const ServiceCard = ({ service, index }) => {
 
       <div className="relative z-10 flex flex-col h-full">
         <div className="mb-6 flex items-center justify-between">
-          <div
-            className={`p-3 rounded-2xl bg-gradient-to-br ${service.color} to-transparent border border-blue-500/10`}
-          >
+          {/* Minimalist Tech Notch Box */}
+          <div className="w-10 h-10 bg-zinc-900 border border-zinc-800 rounded flex items-center justify-center transition-colors group-hover:border-cyan-500/30">
             {service.icon}
           </div>
           <ArrowUpRight
-            className="text-slate-500 group-hover:text-blue-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300"
-            size={20}
+            className="text-zinc-600 group-hover:text-cyan-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
+            size={16}
           />
         </div>
 
-        <h3 className="text-xl md:text-2xl font-black text-white mb-4 tracking-tight">
+        <h3 className="text-lg font-bold text-white mb-3 tracking-tight">
           {service.title}
         </h3>
 
-        {/* Added break-words to handle long strings and prevent overflow */}
-        <p className="text-slate-400 leading-relaxed mb-8 flex-grow text-sm md:text-base break-words">
+        <p className="text-zinc-400 leading-relaxed mb-8 flex-grow text-xs sm:text-[13px] break-words">
           {service.description}
         </p>
 
-        <div className="flex flex-wrap gap-2 mt-auto">
+        {/* Industrial Monospaced Node Badges */}
+        <div className="flex flex-wrap gap-1.5 mt-auto font-mono">
           {service.tags.map((tag) => (
             <span
               key={tag}
-              className="text-[9px] md:text-[10px] uppercase tracking-widest font-black px-3 py-1 rounded-full border border-slate-800 bg-slate-900 text-slate-400 group-hover:border-blue-500/30 transition-colors"
+              className="text-[9px] uppercase tracking-wider font-medium px-2 py-0.5 rounded border border-zinc-900 bg-zinc-950/80 text-zinc-500 group-hover:text-zinc-400 group-hover:border-zinc-800 transition-colors"
             >
               {tag}
             </span>
@@ -135,35 +132,36 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="relative py-24 md:py-32 bg-[#030712] text-white px-4 md:px-6 overflow-hidden"
+      className="relative py-24 md:py-32 bg-[#09090b] text-zinc-100 px-4 md:px-6 overflow-hidden selection:bg-cyan-500/20 selection:text-cyan-400"
     >
-      {/* Background Mesh Orbs - Scaled for mobile */}
-      <div className="absolute top-0 left-1/4 w-64 md:w-96 h-64 md:h-96 bg-blue-600/10 blur-[100px] md:blur-[150px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-64 md:w-96 h-64 md:h-96 bg-indigo-600/10 blur-[100px] md:blur-[150px] rounded-full pointer-events-none" />
+      {/* Vector Blueprint Lines to reinforce background consistency */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f293706_1px,transparent_1px),linear-gradient(to_bottom,#1f293706_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none z-0" />
 
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 md:mb-24">
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="mb-16 md:mb-24">
+          {/* Tactical Label Indicator */}
           <motion.span
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="text-blue-500 font-black text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4 block"
+            viewport={{ once: true }}
+            className="text-cyan-400 font-mono font-medium text-[10px] md:text-xs tracking-[0.25em] uppercase mb-4 block"
           >
-            Capabilities
+            // matrix_capabilities
           </motion.span>
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-3xl md:text-6xl font-black text-white tracking-tighter leading-[1.1]"
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.15]"
           >
-            Pushing the boundaries of <br className="hidden md:block" />
-            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              what's possible.
-            </span>
+            Architecting Resilient Systems <br />& Scalable Software Engines.
           </motion.h2>
         </div>
 
-        {/* Responsive Grid: 1 col mobile, 2 col tablet, 3 col desktop */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {/* Tactical Matrix System Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {services.map((service, index) => (
             <ServiceCard key={index} service={service} index={index} />
           ))}

@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Github, Linkedin, Terminal } from "lucide-react";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,124 +23,228 @@ const Navbar = () => {
     }
   }, [mobileMenuOpen]);
 
-  const navLinks = [
-    { name: "Services", href: "#services" },
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
-  ];
+  const navLinks = useMemo(
+    () => [
+      { name: "Services", href: "#services" },
+      { name: "About", href: "#about" },
+      { name: "Projects", href: "#projects" },
+      { name: "Contact", href: "#contact" },
+    ],
+    [],
+  );
+
+  // --- TACTICAL SEAMLESS VARIANTS ---
+  const overlayVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.3, ease: "linear" },
+    },
+  };
+
+  const menuVariants = {
+    hidden: {
+      x: "100%",
+      transition: { type: "spring", stiffness: 350, damping: 35 },
+    },
+    visible: {
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 280,
+        damping: 28,
+        staggerChildren: 0.05,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: 20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { type: "spring", stiffness: 150, damping: 20 },
+    },
+  };
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ${
-        scrolled ? "pt-2 md:pt-4" : "pt-0"
-      } px-2 md:px-6`}
+      className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 px-4 sm:px-6 ${
+        scrolled ? "pt-3" : "pt-4 md:pt-6"
+      }`}
     >
       <div
-        className={`mx-auto flex items-center justify-between px-3 md:px-8 py-2.5 md:py-3 rounded-xl md:rounded-2xl transition-all duration-300 ${
+        className={`mx-auto flex items-center justify-between px-4 md:px-6 py-2.5 rounded border transition-all duration-300 ${
           scrolled
-            ? "max-w-7xl bg-slate-900/90 backdrop-blur-xl border border-slate-800 shadow-2xl"
-            : "max-w-full bg-transparent border border-transparent"
+            ? "max-w-5xl bg-zinc-950/90 backdrop-blur-md border-zinc-800 shadow-2xl"
+            : "max-w-7xl bg-transparent border-transparent"
         }`}
       >
-        {/* Logo Section - Scaled down for very small screens */}
-        <div className="flex items-center gap-1.5 md:gap-2 group cursor-pointer flex-shrink-0">
-          <div className="w-8 h-8 md:w-10 md:h-10 bg-blue-600 rounded-lg md:rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300 shadow-lg shadow-blue-600/20">
-            <Terminal size={16} className="text-white md:hidden" />
-            <Terminal size={20} className="text-white hidden md:block" />
+        {/* INDUSTRIAL BRAND LOGO */}
+        <div className="flex items-center gap-3 group cursor-pointer flex-shrink-0">
+          <div className="w-8 h-8 bg-zinc-900 border border-zinc-800 rounded flex items-center justify-center transition-colors group-hover:border-cyan-500/50">
+            <Terminal size={14} className="text-cyan-400" />
           </div>
-          <span className="text-base md:text-xl font-black tracking-tighter text-white whitespace-nowrap">
-            MANZI<span className="text-blue-500"> I Kevin</span>
+          <span className="text-sm font-bold tracking-[0.18em] text-white uppercase font-sans">
+            MANZI{" "}
+            <span className="text-cyan-400 font-mono font-medium text-[13px] tracking-normal">
+              // I.KEVIN
+            </span>
           </span>
         </div>
 
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
-          {navLinks.map((link) => (
+        {/* CYBER LINK BOARD (Pill Highlight Layout) */}
+        <div className="hidden lg:flex items-center gap-1 bg-zinc-950/60 border border-zinc-900 p-1 rounded font-mono">
+          {navLinks.map((link, idx) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-[11px] xl:text-xs font-black uppercase tracking-widest text-slate-400 hover:text-white transition-colors relative group"
+              onMouseEnter={() => setHoveredIndex(idx)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              className="px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-400 hover:text-cyan-400 transition-colors relative"
             >
-              {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-blue-500 transition-all duration-300 group-hover:w-full" />
+              <span className="relative z-10">{link.name}</span>
+              {hoveredIndex === idx && (
+                <motion.span
+                  layoutId="nav-hover-pill"
+                  className="absolute inset-0 bg-zinc-900 border border-zinc-800 rounded"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 28 }}
+                />
+              )}
             </a>
           ))}
         </div>
 
-        {/* Action Buttons */}
-        <div className="hidden md:flex items-center gap-2 lg:gap-4 flex-shrink-0">
-          <div className="flex items-center gap-1 border-r border-slate-800 pr-3 lg:pr-6">
-            <a href="#" className="p-1.5 text-slate-400 hover:text-white transition-all hover:scale-110">
-              <Github size={18} />
+        {/* TACTICAL CONTROLS & UTILITIES */}
+        <div className="hidden md:flex items-center gap-4 flex-shrink-0">
+          <div className="flex items-center gap-0.5 border-r border-zinc-800/80 pr-3">
+            <a
+              href="https://github.com/Code-harness"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub Access"
+              className="p-2 text-zinc-400 hover:text-cyan-400 hover:bg-zinc-900/60 border border-transparent hover:border-zinc-800 rounded transition-all"
+            >
+              <Github size={16} />
             </a>
-            <a href="#" className="p-1.5 text-slate-400 hover:text-white transition-all hover:scale-110">
-              <Linkedin size={18} />
+            <a
+              href="https://www.linkedin.com/in/code-harnessor-85bb8238b/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn Network"
+              className="p-2 text-zinc-400 hover:text-cyan-400 hover:bg-zinc-900/60 border border-transparent hover:border-zinc-800 rounded transition-all"
+            >
+              <Linkedin size={16} />
             </a>
           </div>
-          <button className="px-4 py-2 bg-white text-black text-[10px] font-black uppercase tracking-widest rounded-lg lg:rounded-xl transition-all hover:bg-blue-50 active:scale-95 whitespace-nowrap">
-            Hire Me
+
+          <button className="px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-black font-mono font-bold text-[11px] uppercase tracking-widest rounded transition-all active:scale-[0.97]">
+            CONNECT.EXE
           </button>
         </div>
 
-        {/* Mobile Toggle */}
+        {/* MONOCHROME MOBILE MENU TOGGLE */}
         <button
-          className="lg:hidden text-white p-1.5 hover:bg-slate-800 rounded-lg transition-colors flex-shrink-0"
+          className="lg:hidden text-zinc-400 p-2 hover:bg-zinc-900 border border-transparent hover:border-zinc-800 rounded transition-all flex-shrink-0"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label={mobileMenuOpen ? "Terminate Menu" : "Initialize Menu"}
         >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* MATRIX DIALOGUE DRAWER SYSTEM */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <>
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setMobileMenuOpen(false)}
-              className="fixed inset-0 bg-black/80 backdrop-blur-md lg:hidden z-[-1]"
-            />
-            
+            {/* Matte Backdrop Shield */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
-              className="fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-slate-950 border-l border-slate-800 shadow-3xl lg:hidden z-50 p-6 flex flex-col"
-            >
-              <div className="flex justify-end mb-8">
-                <button onClick={() => setMobileMenuOpen(false)} className="text-slate-400 p-2">
-                  <X size={32} />
-                </button>
-              </div>
+              variants={overlayVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              onClick={() => setMobileMenuOpen(false)}
+              className="fixed inset-0 bg-black/70 lg:hidden z-40 backdrop-blur-sm"
+            />
 
-              <div className="flex flex-col gap-6">
-                {navLinks.map((link, i) => (
-                  <motion.a
-                    initial={{ opacity: 0, x: 10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05 }}
-                    key={link.name}
-                    href={link.href}
+            {/* Industrial Structural Sidebar */}
+            <motion.div
+              variants={menuVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              className="fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-zinc-950 border-l border-zinc-800 z-50 p-6 flex flex-col justify-between shadow-2xl"
+            >
+              <div>
+                {/* Drawer System Header */}
+                <div className="flex items-center justify-between mb-10 pb-4 border-b border-zinc-900">
+                  <div className="flex items-center gap-2">
+                    <div className="w-6 h-6 bg-zinc-900 border border-zinc-800 rounded flex items-center justify-center">
+                      <Terminal size={12} className="text-cyan-400" />
+                    </div>
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-zinc-500">
+                      [ SYS.NAV ]
+                    </span>
+                  </div>
+                  <button
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-3xl font-black text-slate-200 hover:text-blue-500 transition-colors"
+                    className="text-zinc-500 hover:text-white p-1.5 hover:bg-zinc-900 border border-transparent hover:border-zinc-800 rounded transition-colors"
                   >
-                    {link.name}
-                  </motion.a>
-                ))}
-              </div>
-              
-              <div className="mt-auto pt-10 border-t border-slate-900">
-                <button className="w-full py-4 bg-blue-600 text-white font-black uppercase tracking-widest rounded-xl mb-6">
-                  Hire Me
-                </button>
-                <div className="flex justify-center gap-8 text-slate-500">
-                  <Github size={24} />
-                  <Linkedin size={24} />
+                    <X size={18} />
+                  </button>
+                </div>
+
+                {/* Staggered Options Vector */}
+                <div className="flex flex-col gap-2 font-mono">
+                  {navLinks.map((link) => (
+                    <motion.a
+                      variants={itemVariants}
+                      key={link.name}
+                      href={link.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="text-sm font-bold text-zinc-400 hover:text-cyan-400 uppercase tracking-widest transition-all block py-3 px-3 hover:bg-zinc-900/50 rounded border border-transparent hover:border-zinc-800/50"
+                    >
+                      <span className="text-zinc-600 mr-2 text-xs font-normal">
+                        //
+                      </span>
+                      {link.name}
+                    </motion.a>
+                  ))}
                 </div>
               </div>
+
+              {/* Drawer Execution Footer */}
+              <motion.div
+                variants={itemVariants}
+                className="pt-6 border-t border-zinc-900"
+              >
+                <button className="w-full py-3.5 bg-cyan-500 hover:bg-cyan-400 text-black font-mono font-bold text-xs uppercase tracking-widest rounded transition-all active:scale-[0.98] mb-5">
+                  INITIALIZE_CONN
+                </button>
+
+                <div className="flex justify-center gap-4 text-zinc-500 border-t border-zinc-900/60 pt-4">
+                  <a
+                    href="https://github.com/Code-harness"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 text-zinc-400 hover:text-cyan-400 hover:bg-zinc-900 border border-zinc-800 rounded transition-colors"
+                  >
+                    <Github size={18} />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/code-harnessor-85bb8238b/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 text-zinc-400 hover:text-cyan-400 hover:bg-zinc-900 border border-zinc-800 rounded transition-colors"
+                  >
+                    <Linkedin size={18} />
+                  </a>
+                </div>
+              </motion.div>
             </motion.div>
           </>
         )}
