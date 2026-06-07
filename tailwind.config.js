@@ -1,11 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}", "./index.html"],
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Geist Sans", "Inter", "sans-serif"],
-        mono: ["Geist Mono", "JetBrains Mono", "Fira Code", "monospace"],
+        sans: ["Plus Jakarta Sans", "sans-serif"],
+        mono: ["Geist Mono", "JetBrains Mono", "monospace"],
       },
     },
   },

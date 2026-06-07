@@ -75,7 +75,7 @@ const LinuxTerminal = () => {
         type: "log",
         text: ":: Syncing production environment configurations...",
       },
-      { type: "header", text: "▶ INJECTED CAPABILITIES MATRIX" },
+      { type: "header", text: "✓ INJECTED CAPABILITIES MATRIX" },
       {
         type: "value",
         label: "applications",
