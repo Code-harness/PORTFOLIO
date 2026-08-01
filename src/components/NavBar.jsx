@@ -123,7 +123,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-4 flex-shrink-0">
           <div className="flex items-center gap-0.5 border-r border-zinc-800/80 pr-3">
             <a
-              href="https://github.com/Code-harness"
+              href="https://github.com/Manzikevin"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub Access"
@@ -132,7 +132,7 @@ const Navbar = () => {
               <Github size={16} />
             </a>
             <a
-              href="https://www.linkedin.com/in/code-harnessor-85bb8238b/"
+              href="https://www.linkedin.com/in/manzikevin/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn Network"
@@ -228,7 +228,7 @@ const Navbar = () => {
 
                 <div className="flex justify-center gap-4 text-zinc-500 border-t border-zinc-900/60 pt-4">
                   <a
-                    href="https://github.com/Code-harness"
+                    href="https://github.com/Manzikevin"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2 text-zinc-400 hover:text-cyan-400 hover:bg-zinc-900 border border-zinc-800 rounded transition-colors"
@@ -236,7 +236,7 @@ const Navbar = () => {
                     <Github size={18} />
                   </a>
                   <a
-                    href="https://www.linkedin.com/in/code-harnessor-85bb8238b/"
+                    href="https://www.linkedin.com/in/manzikevin/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2 text-zinc-400 hover:text-cyan-400 hover:bg-zinc-900 border border-zinc-800 rounded transition-colors"
