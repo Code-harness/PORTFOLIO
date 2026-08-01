@@ -16,7 +16,7 @@ const projects = [
     title: "BazaCare",
     category: "Full-Stack HealthTech",
     description:
-      "A comprehensive digital healthcare management ecosystem offering streamable appointments, patient records routing, and reactive medical service management interfaces.",
+      "a digital wellness and peer support platform designed primarily to provide a secure, anonymous, and accessible space for young people to seek guidance and health resources.",
     image: image8,
     tags: ["Laravel", "React", "Tailwind CSS", "MySQL", "REST API"],
     link: "https://bazacare.space/",
