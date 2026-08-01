@@ -5,8 +5,54 @@ import image1 from "../../assets/imgs/proj_1.png";
 import image2 from "../../assets/imgs/proj_2.png";
 import image3 from "../../assets/imgs/proj_3.png";
 import image4 from "../../assets/imgs/proj_4.png";
+import image5 from "../../assets/imgs/proj_5.png";
+import image6 from "../../assets/imgs/proj_6.png";
+import image7 from "../../assets/imgs/proj_7.png";
+import image8 from "../../assets/imgs/proj_8.png";
+import image9 from "../../assets/imgs/proj_9.png";
 
 const projects = [
+  {
+    title: "BazaCare",
+    category: "Full-Stack HealthTech",
+    description:
+      "A comprehensive digital healthcare management ecosystem offering streamable appointments, patient records routing, and reactive medical service management interfaces.",
+    image: image8,
+    tags: ["Laravel", "React", "Tailwind CSS", "MySQL", "REST API"],
+    link: "https://bazacare.space/",
+    github: "#",
+  },
+  {
+    title: "Urumuri Solutions",
+    category: "Corporate Web Architecture",
+    description:
+      "Official corporate tech portal for Urumuri Solutions featuring high-performance landing structures, modern interactive UI nodes, and robust business service showcases.",
+    image: image5,
+    tags: ["Laravel", "Next.js", "Tailwind CSS", "Alpine.js", "PostgreSQL"],
+    link: "https://urumurisolutions.online",
+    github: "#",
+  },
+  {
+    title: "Kindi Coffee Shop",
+    category: "E-Commerce & Hospitality",
+    description:
+      "A sleek digital storefront and order management platform built for modern coffee shop workflows, menu exploration, and customer reservations.",
+    image: image6,
+    tags: ["Nextjs", "Tailwind CSS", "Supabase"],
+    link: "https://kindi.urumuri.online/",
+    github: "#",
+  },
+  {
+    title: "Grand Maison Hotel",
+    category: "Hospitality Management System",
+    description:
+      "An integrated hotel reservation platform featuring room inventory tracking, guest booking engines, and dynamic pricing control panels.",
+    image: image7,
+    tags: ["Nextjs", "Tailwind CSS", "Supabase"],
+    link: "#",
+    github: "https://grandmaison.urumuri.online/",
+  },
+
   {
     title: "G.S Marie Merci Kibeho Website",
     category: "Full-stack Platform",
@@ -24,8 +70,8 @@ const projects = [
       "High-fidelity image rendering matrix built using React and TypeScript. Optimized using lazy image compilation and crisp asset loading architecture.",
     image: image3,
     tags: ["React", "TypeScript", "Tailwind"],
-    link: "#",
-    github: "#",
+    link: "https://bravephotography.vercel.app/",
+    github: "https://github.com/Code-harness/brave_photography",
   },
   {
     title: "Justice On Move-MIS",
@@ -34,7 +80,7 @@ const projects = [
       "A secure management information platform built for tracking case distribution metrics, legal submission pipelines, and real-time operations telemetry.",
     image: image2,
     tags: ["Laravel", "REST API", "Blade", "Tailwind", "Alpine.js"],
-    link: "#",
+    link: "https://jommis-production.up.railway.app/",
     github: "#",
   },
   {
@@ -45,6 +91,16 @@ const projects = [
     image: image4,
     tags: ["Laravel", "Google Maps API", "Blade", "Tailwind", "Alpine.js"],
     link: "#",
+    github: "#",
+  },
+  {
+    title: "TeleRadio",
+    category: "Digital Streaming & Media",
+    description:
+      "Advanced open-source streaming infrastructure delivering high-fidelity TV and Radio frequencies with zero tracking, built-in M3U link previews, and fast extraction pipelines.",
+    image: image9,
+    tags: ["Next.js", "Python", "Tailwind CSS", "M3U Parsing", "Vercel"],
+    link: "https://teleradio.vercel.app/",
     github: "#",
   },
 ];
